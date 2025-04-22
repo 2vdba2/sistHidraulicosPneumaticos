@@ -60,7 +60,7 @@ void loop() {
   lcd.print("Zb: ");
   lcd.print(reedSwitchZBaixo);
   lcd.print("; Za: ");
-  lcd.print(reedSwitchZBaixo);
+  lcd.print(reedSwitchZAlto);
   Serial.println(digitalRead(pinoReedSwitchZBaixo));
   delay(250);  // espera 2 segundos antes de atualizar
   // Aqui você pode adicionar código para atualizar o display
