@@ -2,6 +2,10 @@ const int pinoAvancoX = 8;
 const int pinoRetornoX = 9;
 const int pinoAvancoY = 10;
 const int pinoRetornoY = 11;
+const int pinoAvancoZ = 12;
+const int pinoRetornoZ = 13;
+const int pinoReedSwitchZBaixo = 6;
+const int pinoReedSwitchZAlto = 7;
 float xInput;
 float yInput;
 float x0Placa1=0.2;
@@ -25,6 +29,10 @@ void setup() {
   pinMode(pinoRetornoX, OUTPUT);
   pinMode(pinoAvancoY, OUTPUT);
   pinMode(pinoRetornoY, OUTPUT);
+  pinMode(pinoAvancoZ, OUTPUT);
+  pinMode(pinoRetornoZ, OUTPUT);
+  pinMode(pinoReedSwitchZBaixo, INPUT);
+  pinMode(pinoReedSwitchZAlto , INPUT);
   Serial.begin(9600);
 }
 
@@ -63,6 +71,24 @@ void loop() {
     digitalWrite(pinoAvancoY, LOW);
     digitalWrite(pinoRetornoY, LOW);
   }
-
+//MOVIMENTO Z
+  if(digitalRead(pinoReedSwitchZBaixo)==LOW){
+    digitalWrite(pinoAvancoZ, HIGH);  
+    digitalWrite(pinoRetornoZ, LOW); 
+  }
+  //digitalWrite(pinoRetornoZ, HIGH); 
+//  else{
+//    digitalWrite(pinoAvancoZ, LOW);  
+//    digitalWrite(pinoRetornoZ, LOW); 
+//    
+//  }
+//  else if(yInput>y0Placa1+tol){
+//    digitalWrite(pinoAvancoY, LOW);
+//    digitalWrite(pinoRetornoY, HIGH); 
+//  }
+//  else{
+//    digitalWrite(pinoAvancoY, LOW);
+//    digitalWrite(pinoRetornoY, LOW);
+//  }
 delay(250);
 }
