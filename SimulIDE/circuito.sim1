@@ -23,7 +23,7 @@
 <item itemtype="Ground" CircId="Ground-36" mainComp="false" Show_id="false" Show_Val="false" Pos="632,-72" rotation="0" hflip="1" vflip="1" label="Ground-36" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
 <item itemtype="Subcircuit" CircId="Uno-37" mainComp="false" Show_id="true" Show_Val="false" Pos="452,-184" rotation="0" hflip="1" vflip="1" label="MOV. X" idLabPos="56.8296,-19.112" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../Arduino/robo/robo.ino.standard.hex" Auto_Load="true" saveEepr="true" MainMcu="false" SerialMon="-1" />
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../Arduino/roboX/roboX.ino.standard.hex" Auto_Load="true" saveEepr="true" MainMcu="false" SerialMon="-1" />
 </item>
 
 <item itemtype="Tunnel" CircId="Tunnel-38" mainComp="false" Show_id="false" Show_Val="false" Pos="440,-152" rotation="0" hflip="1" vflip="1" label="Tunnel-38" idLabPos="-35.4706,-19.9736" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="avancoX-valve" IsBus="false" />
@@ -151,7 +151,7 @@
 <item itemtype="Tunnel" CircId="Tunnel-119" mainComp="false" Show_id="false" Show_Val="false" Pos="432,148" rotation="0" hflip="1" vflip="1" label="Tunnel-119" idLabPos="-35.9059,-19.5383" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="D6Y" IsBus="false" />
 
 <item itemtype="Subcircuit" CircId="Uno-120" mainComp="false" Show_id="true" Show_Val="false" Pos="444,84" rotation="0" hflip="1" vflip="1" label="Uno-120" idLabPos="56.8296,-19.112" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../Arduino/robo/robo.ino.standard.hex" Auto_Load="true" saveEepr="true" MainMcu="false" SerialMon="-1" />
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../Arduino/roboY/roboY.ino.standard.hex" Auto_Load="true" saveEepr="true" MainMcu="false" SerialMon="-1" />
 </item>
 
 <item itemtype="Tunnel" CircId="Tunnel-122" mainComp="false" Show_id="false" Show_Val="false" Pos="-112,172" rotation="0" hflip="1" vflip="1" label="Tunnel-122" idLabPos="-35.4706,-19.9736" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="avancoY-ard" IsBus="false" />
