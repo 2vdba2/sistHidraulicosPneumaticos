@@ -7,7 +7,7 @@
 #define  pinoRetornoY 11
 #define  pinoAvancoZ 12
 #define  pinoRetornoZ 13
-
+//#include <TimerInterrupt.h>
 //--------------------------------
 //Mapeamento
 //--------------------------------
@@ -37,6 +37,8 @@ float yBlue =3*((yf-y0)/4)+y0;
 float yUndef=1*((yf-y0)/4)+y0;
 
 const float tol=0.02;
+char comando;
+char esperandoComando=1;
 float converterAnalogParaFloat(int leitura, float xMin, float xMax) {
   if (xMin == xMax) return xMin; // evita divisão por zero
 
@@ -161,15 +163,64 @@ void setup() {
   pinMode(pinoReedSwitchZBaixo, INPUT);
   pinMode(pinoReedSwitchZAlto , INPUT);
   Serial.begin(9600);
+  //Timer1.initialize(interval * 1000); // O valor é em microssegundos
+  //Timer1.attachInterrupt(checkSerial);
 }
 
 void loop() {
+  if(esperandoComando){
+    Serial.write("-------------------------------------------------------\n");
+    Serial.write("Robo Cartesiano para posicionamentos de pecas por Cor\n");
+    Serial.write("Escolha Acao:\n");
+    Serial.write("0: Emergency Stop \n");
+    Serial.write("1: Start \n");
+    Serial.write("2: Go to ORIGIN \n");
+    Serial.write("3: Go to RED \n");
+    Serial.write("4: Go to BLUE \n");
+    Serial.write("5: Go to GREEN \n");
+    Serial.write("6: Activate Suction \n");
+    Serial.write("7: Deactivate Suction \n");
+    Serial.write("-------------------------------------------------------\n");
+    esperandoComando=0;
+  }
 
-  Serial.print("X: ");
-  //Serial.print(xInput);
-  Serial.print(" | Y: ");
-  //Serial.println(yInput);
+  // Verifica se há dados na serial
+  if (Serial.available()) {
+    esperandoComando=1;
 
-  takeAtOrigin();
-  leaveAtRed();
+    
+    comando = Serial.read();  // Lê o próximo caractere da serial
+    //Serial.write(comando);
+
+    // Se o caractere for um dígito de 0 a 5, processa o comando
+    
+      switch (comando) {  // Usamos o caractere diretamente no switch
+        case '1':  // Start
+          Serial.println("Comando 1 acionado");
+          
+          takeAtOrigin();
+          leaveAtRed();
+          break;
+        case '2':  // Red
+          Serial.println("Comando 2 acionado");
+          break;
+        case '3':  // Green
+          Serial.println("Comando 3 acionado");
+          break;
+        case '4':  // Blue
+          Serial.println("Comando 4 acionado");
+          break;
+        case '5':  // Origin
+          Serial.println("Comando 5 acionado");
+          break;
+        default:  // Comando inválido
+          Serial.println("Comando inválido");
+          break;
+      }
+    
+
+  }  
+
+  //takeAtOrigin();
+  //leaveAtRed();
 }

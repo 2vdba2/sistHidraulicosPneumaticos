@@ -292,6 +292,8 @@
 
 <item itemtype="Tunnel" CircId="Tunnel-220" mainComp="false" Show_id="false" Show_Val="false" Pos="-480,-120" rotation="0" hflip="1" vflip="1" label="Tunnel-220" idLabPos="-35.4706,-19.9736" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="avancoX-ard" IsBus="false" />
 
+<item itemtype="SerialTerm" CircId="SerialTerm-226" mainComp="false" Show_id="false" Show_Val="false" Pos="-512,-188" rotation="0" hflip="-1" vflip="1" label="SerialTerm-226" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
+
 <item itemtype="Node" CircId="Node-69" mainComp="false" Pos="-216,-128" />
 
 <item itemtype="Node" CircId="Node-78" mainComp="false" Pos="-216,-112" />
@@ -613,5 +615,9 @@
 <item itemtype="Connector" uid="Connector-256" startpinid="Tunnel-218-pin" endpinid="Uno-2-12" pointList="-480,-88,-464,-88" />
 
 <item itemtype="Connector" uid="Connector-257" startpinid="Tunnel-217-pin" endpinid="Uno-2-13" pointList="-476,-80,-464,-80" />
+
+<item itemtype="Connector" uid="Connector-282" startpinid="SerialTerm-226-pin0" endpinid="Uno-2-0" pointList="-488,-196,-464,-196,-464,-192" />
+
+<item itemtype="Connector" uid="Connector-283" startpinid="SerialTerm-226-pin1" endpinid="Uno-2-1" pointList="-488,-180,-464,-180,-464,-184" />
 
 </circuit>
