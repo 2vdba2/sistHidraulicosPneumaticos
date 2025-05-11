@@ -1,28 +1,30 @@
-
 #include <Arduino.h>
 #include "primaryMovements.h"
 #include "globals.h"
 #include "emergencyStop.h"
-#include "interface.h"
-void setup() {
 
-  pinMode(pinoAvancoX, OUTPUT);
-  pinMode(pinoRetornoX, OUTPUT);
-  pinMode(pinoAvancoY, OUTPUT);
-  pinMode(pinoRetornoY, OUTPUT);
-  pinMode(pinoAvancoZ, OUTPUT);
-  pinMode(pinoRetornoZ, OUTPUT);
-  pinMode(pinoSuccao, OUTPUT);
-  pinMode(pinoReedSwitchZBaixo, INPUT);
-  pinMode(pinoReedSwitchZAlto , INPUT);
-  Serial.begin(9600);
-  setupTimer1();
-
+// Inicializa os componentes da interface (botões, LEDs, buzzer, etc.)
+void printMenu(){
+    Serial.write("-------------------------------------------------------\n");
+    Serial.write("Robo Cartesiano para posicionamentos de pecas por Cor\n");
+    Serial.write("Escolha Acao:\n");
+    Serial.write("0: Emergency Stop \n");
+    Serial.write("1: Start \n");
+    Serial.write("2: Go to ORIGIN \n");
+    Serial.write("3: Go to RED \n");
+    Serial.write("4: Go to BLUE \n");
+    Serial.write("5: Go to GREEN \n");
+    Serial.write("6: Pulse Suction \n");
+    Serial.write("7: Print XY Position \n");
+    //Serial.write("8:  \n");
+    Serial.write("x: moveXY(1,0) \n");
+    Serial.write("y: moveXY(0,1) \n");
+    Serial.write("z: moveZUp() \n");
+    Serial.write("-------------------------------------------------------\n");
 }
 
-void loop() {
-
-  if (esperandoComando) {
+void interfaceRobo(){
+ if (esperandoComando) {
     //TIMSK1 &= ~(1 << OCIE1A);  // Desativa interrupção se necessário
     emergencyStop = false;
     stop();
