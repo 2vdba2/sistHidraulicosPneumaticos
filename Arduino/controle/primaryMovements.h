@@ -6,6 +6,8 @@ void succao(bool ativo);
 void moveZUp();
 void printXY();
 void moveZDown();
+void moveX(float X);
+void moveY(float Y);
 void moveXY(float X, float Y);
 void takeAtOrigin();
 void leaveAtRed();

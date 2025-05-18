@@ -16,10 +16,13 @@ void printMenu(){
     Serial.write("5: Go to GREEN \n");
     Serial.write("6: Pulse Suction \n");
     Serial.write("7: Print XY Position \n");
-    //Serial.write("8:  \n");
-    Serial.write("x: moveXY(1,0) \n");
-    Serial.write("y: moveXY(0,1) \n");
+    Serial.write("8: moveZDown()\n");
+    Serial.write("x: moveX(xf) \n");
+    Serial.write("X: moveX(x0) \n");
+    Serial.write("y: moveY(yf) \n");
+    Serial.write("Y: moveY(y0) \n");
     Serial.write("z: moveZUp() \n");
+    Serial.write("Z: moveZDown() \n");
     Serial.write("-------------------------------------------------------\n");
 }
 
@@ -90,15 +93,27 @@ void interfaceRobo(){
       */
       case 'x':  // Origin
         Serial.println("Comando x acionado");
-        moveXY(1.0, 0.0);
+        moveX(xf);
+        break;
+     case 'X':  // Origin
+        Serial.println("Comando X acionado");
+        moveX(x0);
         break;
       case 'y':  // Origin
         Serial.println("Comando y acionado");
-        moveXY(0.0, 1.0);
+        moveY(yf);
+        break;
+      case 'Y':  // Origin
+        Serial.println("Comando Y acionado");
+        moveY(y0);
         break;
       case 'z':  // Origin
         Serial.println("Comando z acionado");
         moveZUp();
+        break;
+      case 'Z':  // Origin
+        Serial.println("Comando Z acionado");
+        moveZDown();
         break;
       default:  // Comando inválido
         Serial.println("Comando inválido");

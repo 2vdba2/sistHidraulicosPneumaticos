@@ -50,3 +50,9 @@ ISR(TIMER1_COMPA_vect) {
 
   }
 }
+
+void testEmergency(void){
+  if (Serial.available() == 1 && Serial.read() == '0') {
+      emergencyStopFunction();
+  }
+}

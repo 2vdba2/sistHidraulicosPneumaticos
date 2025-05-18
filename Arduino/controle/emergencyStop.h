@@ -4,5 +4,5 @@
 void setupTimer1();
 void stop();
 void emergencyStopFunction();
-
+void testEmergency(void);
 #endif

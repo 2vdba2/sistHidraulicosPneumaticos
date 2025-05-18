@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "primaryMovements.h"
 #include "globals.h"
-
+#include "emergencyStop.h"
 float converterAnalogParaFloat(int leitura, float xMin, float xMax) {
   if (xMin == xMax) return xMin; // evita divisão por zero
 
@@ -28,6 +28,7 @@ void moveZUp() {
     digitalWrite(pinoAvancoZ, HIGH);
     digitalWrite(pinoRetornoZ, LOW);
     delay(250);
+    testEmergency();
   }
   digitalWrite(pinoAvancoZ, LOW);
   digitalWrite(pinoRetornoZ, LOW);
@@ -50,25 +51,17 @@ void moveZDown() {
     digitalWrite(pinoAvancoZ, LOW);
     digitalWrite(pinoRetornoZ, HIGH);
     delay(250);
+    testEmergency();
   }
   digitalWrite(pinoAvancoZ, LOW);
   digitalWrite(pinoRetornoZ, LOW);
 }
 
-void moveXY(float X, float Y) {
-
+void moveX(float X){
   bool xOK = false;
-  bool yOK = false;
-
-
-  //Subir Z
-  moveZUp();
-
-  //Enquanto x e y nao estiverem na posicao desejada ficar preso nesse loop
-  while (!(xOK && yOK) && (!emergencyStop)) {
+  while (!(xOK) && (!emergencyStop)) {
     xInput = converterAnalogParaFloat(analogRead(A0), 0, 1);
-    yInput = converterAnalogParaFloat(analogRead(A1), 0, 1);
-    //MOVIMENTO X
+    
     if (xInput < X - tol) {
       digitalWrite(pinoAvancoX, HIGH);
       digitalWrite(pinoRetornoX, LOW);
@@ -82,6 +75,15 @@ void moveXY(float X, float Y) {
       digitalWrite(pinoRetornoX, LOW);
       xOK = true;
     }
+    delay(250);
+  }
+}
+
+void moveY(float Y){
+  
+  bool yOK = false;
+  while (!(yOK) && (!emergencyStop)) {
+    yInput = converterAnalogParaFloat(analogRead(A1), 0, 1);  
     //MOVIMENTO Y
     if (yInput < Y - tol) {
       digitalWrite(pinoAvancoY, HIGH);
@@ -98,15 +100,15 @@ void moveXY(float X, float Y) {
     }
     delay(250);
   }
-  //MOVIMENTO Z
+}
+
+void moveXY(float X, float Y) {
+  moveZUp();
+  moveX(X);
+  moveY(Y);
   moveZDown();
   if (!emergencyStop) {
     printXY();
-    /*
-      Serial.print("X: ");
-      Serial.print(xInput);
-      Serial.print(" | Y: ");
-      Serial.println(yInput);*/
   }
 }
 

@@ -31,7 +31,7 @@ float yGreen = 3 * ((yf - y0) / 4) + y0;
 float yBlue = 3 * ((yf - y0) / 4) + y0;
 float yUndef = 1 * ((yf - y0) / 4) + y0;
 
-const float tol = 0.02;
+const float tol = 0.05;
 char comando;
 char esperandoComando = 1;
 volatile bool emergencyStop = false;
