@@ -10,10 +10,11 @@ void printMenu(){
     Serial.write("Escolha Acao:\n");
     Serial.write("0: Emergency Stop \n");
     Serial.write("1: Start \n");
-    Serial.write("2: Go to ORIGIN \n");
-    Serial.write("3: Go to RED \n");
+    
+    Serial.write("2: Go to RED \n");
+    Serial.write("3: Go to GREEN \n");
     Serial.write("4: Go to BLUE \n");
-    Serial.write("5: Go to GREEN \n");
+    Serial.write("5: Go to ORIGIN \n");
     Serial.write("6: Pulse Suction \n");
     Serial.write("7: Print XY Position \n");
     Serial.write("8: moveZDown()\n");

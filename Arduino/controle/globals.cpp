@@ -21,17 +21,17 @@ float yf = 700.0 / 1024;
 float xInput;
 float yInput;
 
-float xRed  = 1 * ((xf - x0) / 6) + x0;
+float xRed  =  1 * ((xf - x0) / 6) + x0;
 float xGreen = 3 * ((xf - x0) / 6) + x0;
-float xBlue = 5 * ((xf - x0) / 6) + x0;
+float xBlue =  5 * ((xf - x0) / 6) + x0;
 float xUndef = 3 * ((xf - x0) / 6) + x0;
 
-float yRed  = 3 * ((yf - y0) / 4) + y0;
+float yRed  =  3 * ((yf - y0) / 4) + y0;
 float yGreen = 3 * ((yf - y0) / 4) + y0;
-float yBlue = 3 * ((yf - y0) / 4) + y0;
+float yBlue =  3 * ((yf - y0) / 4) + y0;
 float yUndef = 1 * ((yf - y0) / 4) + y0;
 
-const float tol = 0.05;
+const float tol = 0.03;
 char comando;
 char esperandoComando = 1;
 volatile bool emergencyStop = false;
